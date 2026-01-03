@@ -1,0 +1,12 @@
+{
+  "name": "my-blog",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "dev:web": "pnpm --filter @my/web dev",
+    "dev:api": "pnpm --filter @my/api start:dev",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down"
+  }
+}
