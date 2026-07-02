@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九江学院 - 简介介绍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2952;
+      --navy-light: #1a4a7a;
+      --teal: #0d9488;
+      --teal-light: #14b8a6;
+      --teal-pale: #ccfbf1;
+      --sky: #0369a1;
+      --sky-light: #e0f2fe;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --gray-900: #0f172a;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--white);
+      color: var(--gray-800);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation dots */
+    .nav-dots {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gray-300);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-dot:hover,
+    .nav-dot.active {
+      background: var(--teal);
+      border-color: var(--teal-light);
+      transform: scale(1.3);
+    }
+
+    .nav-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--navy);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-dot:hover::after {
+      opacity: 1;
+    }
+
+    /* Section base */
+    .section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* ===== COVER ===== */
+    .cover {
+      background: var(--navy);
+      color: white;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('imgs/01-封面校园全景.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(8, 20, 45, 0.92) 0%,
+        rgba(15, 41, 82, 0.88) 40%,
+        rgba(3, 105, 161, 0.75) 100%
+      );
+    }
+
+    /* Geometric decorations */
+    .cover-geo {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .cover-geo-1 {
+      width: 600px;
+      height: 600px;
+      border: 1px solid rgba(13, 148, 136, 0.2);
+      top: -200px;
+      right: -100px;
+      animation: geoRotate 40s linear infinite;
+    }
+    .cover-geo-2 {
+      width: 400px;
+      height: 400px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      top: -80px;
+      right: -50px;
+      animation: geoRotate 30s linear infinite reverse;
+    }
+    .cover-geo-3 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(13,148,136,0.15), transparent);
+      bottom: 10%;
+      right: 5%;
+      animation: geoPulse 4s ease-in-out infinite;
+    }
+    .cover-geo-4 {
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(3,105,161,0.2), transparent);
+      bottom: 25%;
+      right: 18%;
+      animation: geoPulse 3s ease-in-out infinite 0.5s;
+    }
+
+    @keyframes geoRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes geoPulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .cover-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 80px 60px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cover-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .cover-badge-new {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(13, 148, 136, 0.25);
+      border: 1px solid rgba(13, 148, 136, 0.5);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #5eead4;
+    }
+
+    .cover-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2dd4bf;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .cover-title-group {
+      margin-bottom: 48px;
+    }
+
+    .cover-chinese {
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 900;
+      letter-spacing: 8px;
+      line-height: 1;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 50%, #5eead4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cover-english {
+      font-size: clamp(14px, 1.8vw, 20px);
+      font-weight: 400;
+      letter-spacing: 6px;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .cover-rule {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .cover-rule-line {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #0d9488, #2dd4bf);
+      border-radius: 2px;
+    }
+
+    .cover-rule-text {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 2px;
+    }
+
+    .cover-motto {
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.6;
+      max-width: 560px;
+      margin-bottom: 56px;
+      border-left: 3px solid rgba(13, 148, 136, 0.6);
+      padding-left: 20px;
+    }
+
+    .cover-tags {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+
+    .cover-tag {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+    }
+
+    .cover-tag:hover {
+      background: rgba(13, 148, 136, 0.2);
+      border-color: rgba(13, 148, 136, 0.5);
+      color: #5eead4;
+    }
+
+    .cover-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .cover-scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 1px;
+    }
+
+    .scroll-arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid rgba(255,255,255,0.35);
+      border-bottom: 2px solid rgba(255,255,255,0.35);
+      transform: rotate(45deg);
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(4px); }
+    }
+
+    .cover-stats {
+      display: flex;
+      gap: 40px;
+    }
+
+    .cover-stat {
+      text-align: right;
+    }
+
+    .cover-stat-num {
+      font-size: 24px;
+      font-weight: 800;
+      color: #5eead4;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .cover-stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    .section-number {
+      font-size: 13px;
+      color: var(--teal);
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--gray-500);
+      font-weight: 400;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .title-accent {
+      display: inline-block;
+      width: 40px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    /* ===== CARD GRID ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 8px 32px rgba(13, 148, 136, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--sky-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--sky);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    /* ===== STAT ROW ===== */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 32px 16px;
+      background: linear-gradient(135deg, var(--sky-light), white);
+      border-radius: 16px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .stat-number {
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--navy), var(--teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--gray-500);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== SPLIT LAYOUT ===== */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .split-visual {
+      background: linear-gradient(135deg, var(--sky-light), var(--teal-pale));
+      border-radius: 24px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 400px;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .split-visual::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13,148,136,0.2), transparent);
+      top: -80px;
+      right: -80px;
+    }
+
+    .visual-block {
+      background: white;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .visual-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-navy { background: var(--navy); }
+    .dot-teal { background: var(--teal); }
+    .dot-sky { background: var(--sky); }
+
+    .visual-block-text {
+      font-size: 14px;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 32px;
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 24px;
+      bottom: 0;
+      width: 2px;
+      background: var(--gray-200);
+    }
+
+    .timeline-item:last-child::before {
+      display: none;
+    }
+
+    .timeline-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-dot::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .timeline-year {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    .timeline-text {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* ===== PHOTO GRID ===== */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+
+    .photo-card {
+      background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 12px;
+      min-height: 140px;
+      border: 1px solid var(--gray-200);
+      transition: all 0.3s;
+    }
+
+    .photo-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .photo-card:nth-child(1) {
+      grid-column: 1 / 3;
+    }
+
+    .photo-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 1.6;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .photo-card-label {
+      font-size: 13px;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    /* ===== TWO COLUMN CARDS ===== */
+    .two-col-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .wide-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 36px;
+    }
+
+    .wide-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wide-card h3 svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--teal);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+
+    .list-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* ===== BAR CHART ===== */
+    .bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bar-label {
+      font-size: 13px;
+      color: var(--gray-600);
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .bar-track {
+      height: 10px;
+      background: var(--gray-100);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 5px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      transition: width 1s ease;
+    }
+
+    /* ===== FLOW DIAGRAM ===== */
+    .flow-diagram {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .flow-node {
+      background: white;
+      border: 2px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      min-width: 140px;
+      transition: all 0.3s;
+    }
+
+    .flow-node:hover {
+      border-color: var(--teal);
+      box-shadow: 0 4px 16px rgba(13,148,136,0.15);
+    }
+
+    .flow-node.primary {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .flow-arrow {
+      color: var(--teal);
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .contact-card {
+      text-align: center;
+      padding: 32px;
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--sky-light);
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--sky);
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .contact-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .contact-card p {
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
+    /* ===== SECTION BACKGROUNDS ===== */
+    .bg-light {
+      background: var(--gray-50);
+    }
+
+    .bg-white {
+      background: white;
+    }
+
+    .bg-gradient-light {
+      background: linear-gradient(180deg, white 0%, var(--sky-light) 100%);
+    }
+
+    /* ===== SCROLL ANIMATION ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===== TAG CHIPS ===== */
+    .chip-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .chip {
+      background: var(--sky-light);
+      color: var(--sky);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* ===== CLOSING SECTION ===== */
+    .closing {
+      background: #08142d;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closing::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(13,148,136,0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 20% 0%, rgba(3,105,161,0.1), transparent);
+    }
+
+    .closing-geo {
+      position: absolute;
+      pointer-events: none;
+    }
+    .closing-geo-1 {
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(13,148,136,0.1);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .closing-geo-2 {
+      width: 350px;
+      height: 350px;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .closing-geo-3 {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(13,148,136,0.3), transparent);
+      border-radius: 50%;
+      top: 20%;
+      right: 10%;
+      animation: geoPulse 3s ease-in-out infinite;
+    }
+
+    .closing-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 80px 60px;
+    }
+
+    .closing-ornament {
+      font-size: 40px;
+      color: rgba(13,148,136,0.5);
+      margin-bottom: 32px;
+      letter-spacing: 8px;
+    }
+
+    .closing-school {
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      letter-spacing: 8px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff, #5eead4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .closing-english {
+      font-size: 14px;
+      letter-spacing: 6px;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+
+    .closing-motto-block {
+      background: rgba(13,148,136,0.1);
+      border: 1px solid rgba(13,148,136,0.25);
+      border-radius: 16px;
+      padding: 32px 48px;
+      margin-bottom: 48px;
+      display: inline-block;
+    }
+
+    .closing-motto-label {
+      font-size: 11px;
+      color: rgba(94,234,212,0.6);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .closing-motto {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 700;
+      color: #5eead4;
+      letter-spacing: 4px;
+      line-height: 1.4;
+    }
+
+    .closing-rule {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(180deg, rgba(13,148,136,0.5), transparent);
+      margin: 0 auto 48px;
+    }
+
+    .closing-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .closing-contact-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .closing-contact-card:hover {
+      background: rgba(13,148,136,0.1);
+      border-color: rgba(13,148,136,0.3);
+      transform: translateY(-2px);
+    }
+
+    .closing-contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(13,148,136,0.15);
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .closing-contact-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .closing-contact-value {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    .closing-footer-line {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ===== HIGHLIGHT BOX ===== */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 24px;
+    }
+
+    .highlight-box h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--teal-light);
+    }
+
+    .highlight-box p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .section {
+        padding: 40px 20px;
+      }
+
+      .nav-dots {
+        display: none;
+      }
+
+      .stat-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .split-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .two-col-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .photo-card:nth-child(1) {
+        grid-column: 1 / 3;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-diagram {
+        flex-direction: column;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+
+      .cover-inner {
+        padding: 60px 24px;
+      }
+
+      .cover-bottom {
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+      }
+
+      .cover-stats {
+        gap: 24px;
+      }
+
+      .closing-contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .closing-motto-block {
+        padding: 24px 32px;
+      }
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      z-index: 1001;
+      transition: width 0.1s linear;
+    }
+
+    /* ===== SECTION INDEX BADGE ===== */
+    .index-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gray-100);
+      border-radius: 50px;
+      padding: 4px 14px 4px 6px;
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-bottom: 16px;
+    }
+
+    .index-badge-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ========== SLIDE 1: COVER ========== -->
+<section class="section cover" id="s0">
+  <!-- Background layers -->
+  <div class="cover-bg"></div>
+  <div class="cover-overlay"></div>
+  <!-- Geometric decorations -->
+  <div class="cover-geo cover-geo-1"></div>
+  <div class="cover-geo cover-geo-2"></div>
+  <div class="cover-geo cover-geo-3"></div>
+  <div class="cover-geo cover-geo-4"></div>
+
+  <div class="cover-inner">
+    <!-- Badge row -->
+    <div class="cover-badge-row">
+      <div class="cover-badge-new">
+        <div class="cover-badge-dot"></div>
+        江西省重点建设高校
+      </div>
+    </div>
+
+    <!-- Title group -->
+    <div class="cover-title-group">
+      <h1 class="cover-chinese">九江学院</h1>
+      <p class="cover-english">Jiujiang University</p>
+      <div class="cover-rule">
+        <div class="cover-rule-line"></div>
+        <span class="cover-rule-text">教育部本科教学工作水平评估优秀院校</span>
+      </div>
+      <p class="cover-motto">
+        庐山之麓 · 长江之滨 · 鄱阳湖畔<br>
+        厚德、笃行、求实、创新
+      </p>
+    </div>
+
+    <!-- Tags -->
+    <div class="cover-tags">
+      <span class="cover-tag">📚 多学科协调发展</span>
+      <span class="cover-tag">🏛️ 应用型本科院校</span>
+      <span class="cover-tag">🌿 千年书院文脉传承</span>
+      <span class="cover-tag">🌏 国际化办学</span>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="cover-bottom">
+      <div class="cover-scroll-hint">
+        <div class="scroll-arrow"></div>
+        SCROLL DOWN · 点击翻页
+      </div>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">23</div>
+          <div class="cover-stat-label">教学学院</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">1.8万+</div>
+          <div class="cover-stat-label">在校生</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">1800+</div>
+          <div class="cover-stat-label">专任教师</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 2: 学校简介 ========== -->
+<section class="section bg-white" id="s1">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="index-badge"><span class="index-badge-num">01</span> 学校简介</div>
+      <h2 class="section-title"><span class="title-accent"></span>历史沿革 · 地理位置 · 学校定位</h2>
+      <p class="section-subtitle">九江学院坐落于中国历史文化名城——江西省九江市，地处庐山北麓、长江南岸，集山水之灵秀，汇人文之底蕴。</p>
+    </div>
+
+    <div class="split-layout reveal reveal-delay-1">
+      <div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div>
+              <div class="timeline-year">2002年</div>
+              <div class="timeline-text">九江学院由原九江大学、九江师专、九江医专、九江教育学院四校合并组建，正式成立为本科院校，开启跨越式发展新篇章。</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div>
+              <div class="timeline-year">2008年</div>
+              <div class="timeline-text">通过教育部本科教学工作水平评估，办学实力获国家认可。</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div>
+              <div class="timeline-year">2013年</div>
+              <div class="timeline-text">获批江西省首批"2011协同创新中心"，科研平台建设迈上新台阶。</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div>
+              <div class="timeline-year">至今</div>
+              <div class="timeline-text">已发展成为一所多学科协调发展、在江西省具有重要影响力的应用型本科院校。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="split-visual" style="background:none;padding:0">
+        <img src="imgs/02-学校主楼校门.png" alt="九江学院校门" style="width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-bottom:16px">
+        <div class="visual-block"><div class="visual-dot dot-navy"></div><span class="visual-block-text">📍 江西省九江市濂溪区 前路二路</span></div>
+        <div class="visual-block"><div class="visual-dot dot-teal"></div><span class="visual-block-text">🏔️ 庐山北麓 · 长江之滨 · 鄱阳湖畔</span></div>
+        <div class="visual-block"><div class="visual-dot dot-sky"></div><span class="visual-block-text">✈️ 距庐山机场约 20 分钟车程</span></div>
+        <div class="visual-block"><div class="visual-dot dot-navy"></div><span class="visual-block-text">🚄 京九铁路、昌九城际在此交汇</span></div>
+      </div>
+    </div>
+
+    <div class="highlight-box reveal reveal-delay-2">
+      <h4>学校定位</h4>
+      <p>九江学院以"立足九江、服务江西、面向全国"为办学宗旨，坚持"以学生为中心、以质量为生命、以特色求发展"的办学理念，致力于建设成为特色鲜明的高水平应用型大学。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 3: 办学规模 ========== -->
+<section class="section bg-light" id="s2">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="index-badge"><span class="index-badge-num">02</span> 办学规模</div>
+      <h2 class="section-title"><span class="title-accent"></span>院系设置 · 学科优势 · 师资力量</h2>
+      <p class="section-subtitle">学校学科门类齐全，师资队伍结构合理，人才培养规模位居省内同类高校前列。</p>
+    </div>
+
+    <div class="stat-row reveal reveal-delay-1">
+      <div class="stat-card">
+        <div class="stat-number">23</div>
+        <div class="stat-label">教学学院</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">13</div>
+        <div class="stat-label">大学部</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1.8<span style="font-size:20px">万</span></div>
+        <div class="stat-label">在校生规模</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1800<span style="font-size:20px">+</span></div>
+        <div class="stat-label">专任教师</div>
+      </div>
+    </div>
+
+    <div class="card-grid reveal reveal-delay-2">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>学科门类</h3>
+        <p>涵盖经济学、法学、教育学、文学、历史学、理学、工学、农学、医学、管理学、艺术学十一大学科门类，形成多学科协调发展的格局。</p>
+        <div class="chip-row">
+          <span class="chip">经济学</span><span class="chip">工学</span><span class="chip">医学</span><span class="chip">管理学</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#f0fdf4">
+          <svg viewBox="0 0 24 24" style="stroke:#16a34a"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>优势学科</h3>
+        <p>化学工程与工艺、旅游管理、会计学、材料成型及控制工程等专业为省级重点学科，特色专业建设成效显著。</p>
+        <div class="chip-row">
+          <span class="chip" style="background:#f0fdf4;color:#16a34a">省级重点</span><span class="chip">特色专业</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#fef9c3">
+          <svg viewBox="0 0 24 24" style="stroke:#ca8a04"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>师资队伍</h3>
+        <p>专任教师中具有高级职称比例超过40%，博士学位教师占比持续提升，双师型教师比例位居省内前列。</p>
+        <div class="chip-row">
+          <span class="chip" style="background:#fef9c3;color:#ca8a04">高级职称40%+</span><span class="chip">双师型</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#fce7f3">
+          <svg viewBox="0 0 24 24" style="stroke:#db2777"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>教学资源</h3>
+        <p>图书馆馆藏纸质图书逾200万册，电子资源数据库50余个，教学科研仪器设备总值超过4亿元。</p>
+        <div class="chip-row">
+          <span class="chip" style="background:#fce7f3;color:#db2777">馆藏200万+</span><span class="chip">设备4亿+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 4: 校园文化 ========== -->
+<section class="section bg-white" id="s3">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="index-badge"><span class="index-badge-num">03</span> 校园文化</div>
+      <h2 class="section-title"><span class="title-accent"></span>学生活动 · 社团组织 · 校园风景</h2>
+      <p class="section-subtitle">九江学院注重学生全面发展，校园文化生活丰富多彩，为学生搭建了广阔的第二课堂平台。</p>
+    </div>
+
+    <div class="two-col-cards reveal reveal-delay-1">
+      <div class="wide-card">
+        <h3>
+          <svg viewBox="0 0 24 24"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
+          学生活动
+        </h3>
+        <div class="list-item"><div class="list-bullet"></div><span>校园文化艺术节：每年举办，涵盖音乐、舞蹈、戏剧、书画等艺术形式，吸引数千名师生参与</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>运动会与体育联赛：校运会、篮球联赛、足球联赛等体育赛事，增强学生体质，培养团队精神</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>志愿服务与社会实践：暑期"三下乡"、社区服务、支教等实践项目，年均参与学生超5000人次</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>学术科技节：挑战杯、互联网+创新创业大赛等，培养学生科研能力和创新精神</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>心理健康教育月：通过讲座、团辅活动等方式关注学生心理健康</span></div>
+      </div>
+      <div class="wide-card">
+        <h3>
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          社团组织
+        </h3>
+        <div class="list-item"><div class="list-bullet"></div><span>学术科技类：数学建模协会、人工智能创新实验室、创新创业俱乐部等</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>文化艺术类：书法协会、摄影协会、汉文化社、辩论协会等</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>体育健身类：篮球协会、足球协会、跆拳道社、瑜伽社等</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>公益实践类：青年志愿者协会、环保协会、红十字会等</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>学生社团总数超过 <strong style="color:var(--navy)">80个</strong>，注册成员超过 <strong style="color:var(--navy)">12000人</strong></span></div>
+      </div>
+    </div>
+
+    <div class="photo-grid reveal reveal-delay-2" style="margin-top:32px">
+      <div class="photo-card" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);padding:0;overflow:hidden;min-height:180px;position:relative">
+        <img src="imgs/03-校园全景风景.png" alt="校园全景" style="width:100%;height:180px;object-fit:cover;border-radius:16px 16px 0 0">
+        <div style="padding:12px 0 4px;text-align:center;font-size:13px;color:var(--gray-600);font-weight:500;background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-radius:0 0 16px 16px">校园全景 · 绿树成荫</div>
+      </div>
+      <div class="photo-card" style="padding:0;overflow:hidden;min-height:140px;position:relative">
+        <img src="imgs/04-教学楼群.png" alt="教学楼群" style="width:100%;height:140px;object-fit:cover;border-radius:16px 16px 0 0">
+        <div style="padding:10px 0 4px;text-align:center;font-size:13px;color:var(--gray-600);font-weight:500">教学楼群</div>
+      </div>
+      <div class="photo-card" style="padding:0;overflow:hidden;min-height:140px;position:relative">
+        <img src="imgs/05-图书馆.png" alt="图书馆" style="width:100%;height:140px;object-fit:cover;border-radius:16px 16px 0 0">
+        <div style="padding:10px 0 4px;text-align:center;font-size:13px;color:var(--gray-600);font-weight:500">图书馆</div>
+      </div>
+      <div class="photo-card" style="padding:0;overflow:hidden;min-height:140px;position:relative">
+        <img src="imgs/06-体育馆.png" alt="体育馆" style="width:100%;height:140px;object-fit:cover;border-radius:16px 16px 0 0">
+        <div style="padding:10px 0 4px;text-align:center;font-size:13px;color:var(--gray-600);font-weight:500">体育馆</div>
+      </div>
+      <div class="photo-card" style="padding:0;overflow:hidden;min-height:140px;position:relative">
+        <img src="imgs/07-校史馆.png" alt="校史馆" style="width:100%;height:140px;object-fit:cover;border-radius:16px 16px 0 0">
+        <div style="padding:10px 0 4px;text-align:center;font-size:13px;color:var(--gray-600);font-weight:500">校史馆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 5: 科研成果与人才培养 ========== -->
+<section class="section bg-light" id="s4">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="index-badge"><span class="index-badge-num">04</span> 科研成果与人才培养</div>
+      <h2 class="section-title"><span class="title-accent"></span>科研创新 · 人才培养 · 实践教学</h2>
+      <p class="section-subtitle">学校坚持教学与科研并重，深化产教融合，培养高素质应用型人才。</p>
+    </div>
+
+    <div class="split-layout reveal reveal-delay-1">
+      <div>
+        <div class="bar-chart">
+          <div class="bar-item">
+            <div class="bar-label"><span>科研项目（近五年）</span><span style="color:var(--teal);font-weight:700">600+ 项</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label"><span>科研经费（累计）</span><span style="color:var(--teal);font-weight:700">1.2 亿元</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:72%;background:linear-gradient(90deg,#0369a1,#38bdf8)"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label"><span>省级以上科研奖励</span><span style="color:var(--teal);font-weight:700">50+ 项</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:55%;background:linear-gradient(90deg,#0f2952,#3b82f6)"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label"><span>授权专利</span><span style="color:var(--teal);font-weight:700">300+ 项</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label"><span>省级以上学科竞赛获奖</span><span style="color:var(--teal);font-weight:700">2000+ 项</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:90%;background:linear-gradient(90deg,#0f2952,#0d9488)"></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card-grid" style="grid-template-columns: 1fr">
+          <div class="card">
+            <div class="card-icon" style="background:#f0fdf4">
+              <svg viewBox="0 0 24 24" style="stroke:#16a34a"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3>科研平台</h3>
+            <p>拥有省级重点实验室、工程研究中心、协同创新中心等多个科研平台，为教师科研和学生创新提供有力支撑。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon" style="background:#faf5ff">
+              <svg viewBox="0 0 24 24" style="stroke:#7c3aed"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-5"/></svg>
+            </div>
+            <h3>产教融合</h3>
+            <p>与九江及周边地区企业建立紧密校企合作，共建实习实训基地100余个，产学研合作项目200余项。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>人才培养质量</h3>
+            <p>毕业生就业率持续保持在92%以上，用人单位满意度超过85%，考研录取率稳步提升。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 6: 国际交流与合作 ========== -->
+<section class="section bg-white" id="s5">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="index-badge"><span class="index-badge-num">05</span> 国际交流与合作</div>
+      <h2 class="section-title"><span class="title-accent"></span>国际化办学 · 对外交流 · 合作共赢</h2>
+      <p class="section-subtitle">学校积极推进教育国际化进程，广泛开展国际合作与交流，提升学校国际影响力。</p>
+    </div>
+
+    <div class="flow-diagram reveal" style="margin-bottom:48px">
+      <div class="flow-node primary">国际交流</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">中外合作办学项目</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">海外实习与游学</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node primary">国际认证与交流</div>
+    </div>
+
+    <div class="card-grid reveal reveal-delay-1">
+      <div class="card">
+        <div class="card-icon" style="background:#ede9fe">
+          <svg viewBox="0 0 24 24" style="stroke:#7c3aed"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>海外合作院校</h3>
+        <p>与美国、英国、澳大利亚、新西兰、日本、韩国等多个国家的高校建立合作关系，开展学分互认、学生交换等项目。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#fce7f3">
+          <svg viewBox="0 0 24 24" style="stroke:#db2777"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>留学生教育</h3>
+        <p>积极招收来华留学生，开设多语种授课专业，搭建跨文化交流平台，已培养来自20余个国家的留学生。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3>学术交流</h3>
+        <p>定期举办国际学术会议，邀请海外知名学者来校讲学，选派教师赴境外研修，提升教师国际化水平。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#fef9c3">
+          <svg viewBox="0 0 24 24" style="stroke:#ca8a04"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>双语教学</h3>
+        <p>推进双语课程和全英文授课专业建设，引进国际优质课程资源，提升学生国际竞争力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 7: 未来发展规划 ========== -->
+<section class="section bg-gradient-light" id="s6">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="index-badge"><span class="index-badge-num">06</span> 未来发展规划</div>
+      <h2 class="section-title"><span class="title-accent"></span>战略目标 · 发展路径 · 愿景展望</h2>
+      <p class="section-subtitle">九江学院立足新发展阶段，贯彻新发展理念，奋力推进学校高质量发展。</p>
+    </div>
+
+    <div class="split-layout reveal reveal-delay-1">
+      <div class="card-grid" style="grid-template-columns: 1fr">
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>建设目标</h3>
+          <p>到2035年，将学校建设成为<strong style="color:var(--navy)">特色鲜明的高水平应用型大学</strong>，成为区域人才培养、科技创新和文化传承的重要基地。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#f0fdf4">
+            <svg viewBox="0 0 24 24" style="stroke:#16a34a"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3>发展重点</h3>
+          <p>优化学科专业结构，强化工科和医科建设；深化教育教学改革，创新人才培养模式；加强科研平台建设，提升服务地方能力。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#ede9fe">
+            <svg viewBox="0 0 24 24" style="stroke:#7c3aed"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>服务地方</h3>
+          <p>紧密对接九江市"工业强市"战略和江西省"2+6+N"产业布局，深化产学研用合作，助力区域经济社会高质量发展。</p>
+        </div>
+      </div>
+      <div class="split-visual" style="background:none;padding:0">
+        <img src="imgs/08-未来科技愿景.png" alt="未来科技愿景" style="width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-bottom:20px">
+        <div style="border-top:1px solid var(--gray-200);padding-top:20px">
+          <div class="visual-block"><div class="visual-dot dot-navy"></div><span class="visual-block-text">学科建设：争创省级一流学科 3-5 个</span></div>
+          <div class="visual-block"><div class="visual-dot dot-teal"></div><span class="visual-block-text">人才引育：新增国家级人才 10+ 名</span></div>
+          <div class="visual-block"><div class="visual-dot dot-sky"></div><span class="visual-block-text">科研突破：国家自然科学基金新突破</span></div>
+          <div class="visual-block"><div class="visual-dot dot-navy"></div><span class="visual-block-text">国际化：中外合作办学项目 5+ 个</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 8: CLOSING ========== -->
+<section class="section closing" id="s7">
+  <!-- Geometric decorations -->
+  <div class="closing-geo closing-geo-1"></div>
+  <div class="closing-geo closing-geo-2"></div>
+  <div class="closing-geo closing-geo-3"></div>
+
+  <div class="closing-inner">
+    <div class="closing-ornament">◆ ◇ ◆</div>
+
+    <h2 class="closing-school">九江学院</h2>
+    <p class="closing-english">Jiujiang University</p>
+
+    <div class="closing-motto-block">
+      <div class="closing-motto-label">校训精神</div>
+      <div class="closing-motto">厚德 · 笃行 · 求实 · 创新</div>
+    </div>
+
+    <div class="closing-rule"></div>
+
+    <div class="closing-contact-grid">
+      <div class="closing-contact-card">
+        <div class="closing-contact-icon">📍</div>
+        <div class="closing-contact-label">联系地址</div>
+        <div class="closing-contact-value">江西省九江市濂溪区<br>前进东路551号</div>
+      </div>
+      <div class="closing-contact-card">
+        <div class="closing-contact-icon">📞</div>
+        <div class="closing-contact-label">招生热线</div>
+        <div class="closing-contact-value">0792-XXX-XXXX</div>
+      </div>
+      <div class="closing-contact-card">
+        <div class="closing-contact-icon">🌐</div>
+        <div class="closing-contact-label">官方网站</div>
+        <div class="closing-contact-value">www.jju.edu.cn</div>
+      </div>
+    </div>
+
+    <div class="closing-footer-line">
+      JIUJIANG UNIVERSITY · 九江学院
+    </div>
+  </div>
+</section>
+
+<script>
+  // Section labels for nav dots
+  const sectionLabels = ['封面', '学校简介', '办学规模', '校园文化', '科研成果', '国际交流', '未来规划', '结束'];
+  const navDots = document.getElementById('navDots');
+  const sections = document.querySelectorAll('.section');
+  const progressBar = document.getElementById('progressBar');
+
+  // Create nav dots
+  sectionLabels.forEach((label, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot';
+    dot.setAttribute('data-label', label);
+    dot.addEventListener('click', () => {
+      sections[i].scrollIntoView({ behavior: 'smooth' });
+    });
+    navDots.appendChild(dot);
+  });
+
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealElements.forEach(el => observer.observe(el));
+
+  // Nav dot active state
+  const dotObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        document.querySelectorAll('.nav-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(s => dotObserver.observe(s));
+
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrolled / total) * 100;
+    progressBar.style.width = progress + '%';
+  });
+</script>
+</body>
+</html>
