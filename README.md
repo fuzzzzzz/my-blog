@@ -2,6 +2,10 @@
 
 基于 pnpm workspace 的个人博客项目，用于分享技术文章和生活随想。
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=fuzzzzzz/my-blog&type=Date)](https://star-history.com/#fuzzzzzz/my-blog&Date)
+
 ## 项目结构
 
 - `apps/` — 博客应用主目录
